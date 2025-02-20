@@ -24,13 +24,14 @@ pipeline {
         
         // Step 4
         stage('Push docker image') {
-                //steps {
+                steps {
                   //  withCredentials([string(credentialsId: 'Docker_hub_password', variable: 'VAR_FOR_DOCKERPASS')]) {
                     //sh "sudo docker login -u webdevprashant -p $VAR_FOR_DOCKERPASS"
                     //}
                   //  sh "sudo docker push webdevprashant/javaapp:${BUILD_NUMBER}"
-                //}
+               
                 sh 'echo pushed image to docker hub'
+             }
         }
         
         // Step 5 
