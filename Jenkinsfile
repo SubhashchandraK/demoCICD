@@ -11,12 +11,12 @@ pipeline {
 
         
   stage('SonarQube analysis') {
+      steps {
     withSonarQubeEnv(credentialsId: 'e3c72120-75bb-4ff4-ba63-eff221d6f364', installationName: 'sonar') { // You can override the credential to be used, If you have configured more than one global server connection, you can specify the corresponding SonarQube installation name configured in Jenkins
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar'
     }
-  
-           }
-        }
+      }
+    }
         // Step 2
         stage('Build by Maven') {
                 steps {
