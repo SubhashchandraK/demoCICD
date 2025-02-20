@@ -44,7 +44,7 @@ pipeline {
                 steps {
                        //sh "sudo docker rm -f myjavaappdevenv"
                         //sh "sudo docker run  -d -p 1222:8080 --name myjavaappdevenv webdevprashant/javaapp:${BUILD_NUMBER}"
-                         sh "sudo docker run  -d -p 1222:8080 --name myjavaappdevenv javaapp:${BUILD_NUMBER}"
+                         sh "sudo docker run  -d -p 1222:8080 --name myjavaappdevenv${BUILD_NUMBER} javaapp:${BUILD_NUMBER}"
                 }
         }
         
@@ -55,7 +55,7 @@ pipeline {
                         // sh "ssh root@192.168.43.229 docker rm -f myjavaapp"
                         // sh "ssh root@192.168.43.229 docker run  -d -p 8080:8080 --name myjavaapp webdevprashant/javaapp-day6:${BUILD_NUMBER}"
             //sh "sudo docker rm -f myjavaappqatestenv"            
-            sh "sudo docker run  -d -p 1223:8080 --name myjavaappqatestenv javaapp:${BUILD_NUMBER}"           
+            sh "sudo docker run  -d -p 1223:8080 --name myjavaappqatestenv${BUILD_NUMBER} javaapp:${BUILD_NUMBER}"           
                     // }
             }
         }
@@ -78,7 +78,7 @@ pipeline {
                         // sh "ssh root@192.168.43.229 docker run  -d -p 8080:8080 --name myjavaapp webdevprashant/javaapp-day6:${BUILD_NUMBER}"                   
                 // }
                // sh "sudo docker rm -f myjavaappprodenv"
-                sh "sudo docker run  -d -p 1224:8080 --name myjavaappprodenv javaapp:${BUILD_NUMBER}"  
+                sh "sudo docker run  -d -p 1224:8080 --name myjavaappprodenv${BUILD_NUMBER} javaapp:${BUILD_NUMBER}"  
             }
         }
     }
