@@ -21,7 +21,12 @@ pipeline {
                     sh "sudo docker build -t javaapp:${BUILD_NUMBER} ."
                 }
         }
-        
+
+        stage('scan docker image') {
+                steps {
+                  sh "trivy image javaapp:${BUILD_NUMBER}"
+                }
+        }
         // Step 4
         stage('Push docker image') {
                 steps {
